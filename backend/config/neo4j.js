@@ -38,7 +38,7 @@ if (typeof database !== "string" || database.trim() === "") {
 
 const driver = neo4j.driver(
   uri.trim(),
-  neo4j.auth.basic(username.trim(), password),
+  neo4j.auth.basic(username.trim(), password.trim()),
   {
     connectionTimeout: 10000,
 
