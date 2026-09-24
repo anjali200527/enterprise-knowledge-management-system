@@ -36,6 +36,10 @@ if (typeof database !== "string" || database.trim() === "") {
 // CREATE NEO4J DRIVER
 // ============================================================
 
+console.log("DEBUG NEO4J_URI:", JSON.stringify(uri));
+console.log("DEBUG NEO4J_USERNAME:", JSON.stringify(username));
+console.log("DEBUG NEO4J_DATABASE:", JSON.stringify(database));
+
 const driver = neo4j.driver(
   uri.trim(),
   neo4j.auth.basic(username.trim(), password.trim()),
