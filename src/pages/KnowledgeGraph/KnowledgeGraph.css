@@ -1,0 +1,288 @@
+.graph-page {
+  padding: 30px;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: var(--bg-primary);
+}
+
+/* ================= HEADER ================= */
+
+.graph-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.graph-header h2 {
+  color: var(--primary);
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.graph-header p {
+  margin: 0;
+  color: #666;
+  font-size: 15px;
+}
+
+/* ================= REFRESH BUTTON ================= */
+
+.refresh-graph-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: 0.3s;
+}
+
+.refresh-graph-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.refresh-graph-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ================= GRAPH SUMMARY ================= */
+
+.graph-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.graph-summary-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 75px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  transition: 0.3s;
+}
+
+.graph-summary-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+}
+
+.graph-summary-card strong {
+  color: var(--primary);
+  font-size: 25px;
+  line-height: 1;
+  margin-bottom: 7px;
+}
+
+.graph-summary-card span {
+  color: #666;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ================= GRAPH CONTAINER ================= */
+
+.graph-container {
+  width: 100%;
+  height: 650px;
+  min-height: 500px;
+  position: relative;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-sizing: border-box;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+  border: 1px solid #e5e7eb;
+}
+
+/* ================= LOADING ================= */
+
+.graph-loading {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--primary);
+  font-size: 20px;
+  font-weight: 600;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.graph-loading h3 {
+  margin: 0 0 10px;
+  color: var(--primary);
+}
+
+.graph-loading p {
+  margin: 0;
+  color: #666;
+  font-size: 15px;
+  font-weight: 400;
+  max-width: 550px;
+  line-height: 1.6;
+}
+
+/* ================= ERROR ================= */
+
+.graph-error {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.graph-error h3 {
+  color: #dc3545;
+  margin: 0 0 15px;
+  font-size: 22px;
+}
+
+.graph-error p {
+  color: #555;
+  margin: 0 0 20px;
+  font-size: 16px;
+  max-width: 600px;
+  word-break: break-word;
+  line-height: 1.6;
+}
+
+/* ================= REACT FLOW ================= */
+
+.graph-container .react-flow {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-primary);
+}
+
+/* ================= REACT FLOW CONTROLS ================= */
+
+.graph-container .react-flow__controls {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.graph-container .react-flow__controls-button {
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.graph-container .react-flow__controls-button:hover {
+  background: #f1f5f9;
+}
+
+/* ================= MINIMAP ================= */
+
+.graph-container .react-flow__minimap {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* ================= EDGE LABEL ================= */
+
+.graph-container .react-flow__edge-text {
+  font-weight: 600;
+}
+
+.graph-container .react-flow__edge-textbg {
+  fill: white;
+}
+
+/* ================= NODE ================= */
+
+.graph-container .react-flow__node {
+  font-size: 13px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1000px) {
+  .graph-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .graph-page {
+    padding: 20px;
+  }
+
+  .graph-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .refresh-graph-btn {
+    width: 100%;
+  }
+
+  .graph-container {
+    height: 550px;
+    min-height: 450px;
+  }
+}
+
+@media (max-width: 500px) {
+  .graph-page {
+    padding: 15px;
+  }
+
+  .graph-header h2 {
+    font-size: 22px;
+  }
+
+  .graph-header p {
+    font-size: 14px;
+  }
+
+  .graph-summary {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .graph-summary-card {
+    padding: 12px;
+    min-height: 65px;
+  }
+
+  .graph-summary-card strong {
+    font-size: 21px;
+  }
+
+  .graph-summary-card span {
+    font-size: 12px;
+  }
+
+  .graph-container {
+    height: 500px;
+    min-height: 400px;
+  }
+}
