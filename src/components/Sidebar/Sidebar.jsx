@@ -94,6 +94,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    localStorage.removeItem("role");
 
     setSidebarOpen(false);
 
