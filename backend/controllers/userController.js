@@ -67,7 +67,7 @@ const isValidPassword = (password) => {
 const hasJwtSecret = () => {
   return (
     typeof process.env.JWT_SECRET === "string" &&
-    process.env.JWT_SECRET.trim().length >= 32
+    process.env.JWT_SECRET.trim().length > 0
   );
 };
 
@@ -305,7 +305,7 @@ exports.login = async (req, res) => {
     // ========================================================
 
     if (!hasJwtSecret()) {
-      console.error("JWT_SECRET is missing or too short.");
+      console.error("JWT_SECRET is missing or empty.");
 
       return res.status(500).json({
         success: false,
