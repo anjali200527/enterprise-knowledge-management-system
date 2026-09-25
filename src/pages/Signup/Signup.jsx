@@ -124,7 +124,7 @@ function Signup() {
         error.message === "Network Error"
       ) {
         alert(
-          "Cannot connect to backend. Please make sure the backend server is running on port 5000.",
+          "Cannot connect to the backend server. Please check your connection or server status.",
         );
       } else {
         alert("Registration failed. Please try again.");

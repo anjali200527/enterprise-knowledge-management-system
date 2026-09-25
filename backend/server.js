@@ -55,11 +55,20 @@ if (frontendURL && !allowedOrigins.includes(frontendURL)) {
 app.use(
   cors({
     origin: function (origin, callback) {
-      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
+      if (!origin) {
+        return callback(null, true);
       }
+      
+      if (allowedOrigins.indexOf(origin) !== -1) {
+        return callback(null, true);
+      }
+      
+      // Allow dynamic Vercel and Render preview URLs
+      if (origin.endsWith(".vercel.app") || origin.endsWith(".onrender.com")) {
+        return callback(null, true);
+      }
+      
+      callback(new Error("Not allowed by CORS"));
     },
     credentials: true,
   }),

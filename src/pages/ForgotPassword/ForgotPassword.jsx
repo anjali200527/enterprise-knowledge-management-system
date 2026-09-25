@@ -82,7 +82,7 @@ function ForgotPassword() {
         error.message === "Network Error"
       ) {
         setMessage(
-          "Cannot connect to backend. Please check whether the backend server is running on port 5000.",
+          "Cannot connect to the backend server. Please check your connection or server status.",
         );
 
         setMessageType("error");
