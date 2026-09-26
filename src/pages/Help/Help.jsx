@@ -1,4 +1,5 @@
 import "./Help.css";
+import Navbar from "../../components/Navbar/Navbar";
 import {
   FaArrowLeft,
   FaTachometerAlt,
@@ -11,12 +12,15 @@ import {
   FaChartBar,
   FaCog,
   FaQuestionCircle,
+  FaBars,
+  FaTimes
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function Help() {
   const navigate = useNavigate();
-
+  
   const helpItems = [
     {
       icon: <FaTachometerAlt />,
@@ -66,123 +70,100 @@ function Help() {
   ];
 
   return (
-    <div className="help-page">
-      <header className="help-header">
-        <div>
-          <span className="help-label">HELP & USER GUIDE</span>
-          <h1>How Can We Help You?</h1>
-          <p>
-            Learn how to use the Enterprise Knowledge Management System
-            effectively.
-          </p>
+    <div className="help-page-wrapper">
+      <Navbar />
+      
+      
+      <main className="help-main-area">
+        <header className="help-header">
+          <div className="help-header-left">
+            
+            <div>
+              <span className="help-label">HELP & USER GUIDE</span>
+              <h1>How Can We Help You?</h1>
+              <p>Find answers and get support for KnowSphere.</p>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            className="help-back-button"
+            onClick={() => navigate("/dashboard")}
+          >
+            <FaArrowLeft />
+            <span>Back to Dashboard</span>
+          </button>
+        </header>
+
+        <div className="help-content">
+          <section className="help-welcome">
+            <div className="help-welcome-icon">
+              <FaQuestionCircle />
+            </div>
+            <div>
+              <h2>Welcome to KnowSphere Help Center</h2>
+              <p>This guide provides a quick overview of the major features available in KnowSphere.</p>
+            </div>
+          </section>
+
+          <section className="help-section">
+            <div className="help-section-heading">
+              <span className="help-label">MODULE GUIDE</span>
+              <h2>Using KnowSphere</h2>
+              <p>Select a module below to understand its purpose and usage.</p>
+            </div>
+            <div className="help-grid">
+              {helpItems.map((item, index) => (
+                <div className="help-card" key={index}>
+                  <div className="help-card-icon">{item.icon}</div>
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="help-section quick-help-section">
+            <div className="help-section-heading">
+              <span className="help-label">QUICK HELP</span>
+              <h2>Common Questions</h2>
+            </div>
+            <div className="faq-list">
+              <div className="faq-item">
+                <h3>How do I access the system?</h3>
+                <p>Log in using your registered account. Your available modules depend on your assigned role.</p>
+              </div>
+              <div className="faq-item">
+                <h3>Why can't I access a particular module?</h3>
+                <p>Some features are restricted according to user roles and permissions. Contact an administrator if access is required.</p>
+              </div>
+              <div className="faq-item">
+                <h3>How does the AI Assistant work?</h3>
+                <p>The AI Assistant uses available enterprise information, document retrieval, and AI capabilities to answer relevant questions.</p>
+              </div>
+              <div className="faq-item">
+                <h3>Where can I get additional support?</h3>
+                <p>If you cannot resolve an issue using this guide, contact the support team through the Contact Us section.</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="help-support">
+            <h2>Still Need Help?</h2>
+            <p>If you need additional assistance, our support section can help you with system-related questions and issues.</p>
+            <button type="button" onClick={() => navigate("/contact")}>
+              Contact Support
+            </button>
+          </section>
         </div>
 
-        <button
-          type="button"
-          className="help-back-button"
-          onClick={() => navigate("/dashboard")}
-        >
-          <FaArrowLeft />
-          <span>Back to Dashboard</span>
-        </button>
-      </header>
-
-      <main className="help-content">
-        <section className="help-welcome">
-          <div className="help-welcome-icon">
-            <FaQuestionCircle />
-          </div>
-
-          <div>
-            <h2>Welcome to EKMS Help Center</h2>
-            <p>
-              This guide provides a quick overview of the major features
-              available in the Enterprise Knowledge Management System.
-            </p>
-          </div>
-        </section>
-
-        <section className="help-section">
-          <div className="help-section-heading">
-            <span className="help-label">MODULE GUIDE</span>
-            <h2>Using EKMS</h2>
-            <p>Select a module below to understand its purpose and usage.</p>
-          </div>
-
-          <div className="help-grid">
-            {helpItems.map((item, index) => (
-              <div className="help-card" key={index}>
-                <div className="help-card-icon">{item.icon}</div>
-
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="help-section quick-help-section">
-          <div className="help-section-heading">
-            <span className="help-label">QUICK HELP</span>
-            <h2>Common Questions</h2>
-          </div>
-
-          <div className="faq-list">
-            <div className="faq-item">
-              <h3>How do I access the system?</h3>
-              <p>
-                Log in using your registered account. Your available modules
-                depend on your assigned role.
-              </p>
-            </div>
-
-            <div className="faq-item">
-              <h3>Why can't I access a particular module?</h3>
-              <p>
-                Some features are restricted according to user roles and
-                permissions. Contact an administrator if access is required.
-              </p>
-            </div>
-
-            <div className="faq-item">
-              <h3>How does the AI Assistant work?</h3>
-              <p>
-                The AI Assistant uses available enterprise information, document
-                retrieval, and AI capabilities to answer relevant questions.
-              </p>
-            </div>
-
-            <div className="faq-item">
-              <h3>Where can I get additional support?</h3>
-              <p>
-                If you cannot resolve an issue using this guide, contact the
-                support team through the Contact Us section.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="help-support">
-          <h2>Still Need Help?</h2>
-          <p>
-            If you need additional assistance, our support section can help you
-            with system-related questions and issues.
-          </p>
-
-          <button type="button" onClick={() => navigate("/contact")}>
-            Contact Support
-          </button>
-        </section>
+        <footer className="help-footer">
+          <p>© {new Date().getFullYear()} KnowSphere</p>
+          <span>Knowledge • Collaboration • Intelligence</span>
+        </footer>
       </main>
-
-      <footer className="help-footer">
-        <p>
-          © {new Date().getFullYear()} Enterprise Knowledge Management System
-        </p>
-        <span>Knowledge • Collaboration • Intelligence</span>
-      </footer>
     </div>
   );
 }

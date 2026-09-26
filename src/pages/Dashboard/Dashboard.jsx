@@ -1,244 +1,116 @@
 import "./Dashboard.css";
-
 import { useState, useEffect, useCallback } from "react";
-
 import axios from "axios";
-
 import { Link } from "react-router-dom";
-
-import Sidebar from "../../components/Sidebar/Sidebar";
 import API_URL from "../../config/api";
-
 import {
   FaUsers,
   FaProjectDiagram,
   FaFileAlt,
   FaSitemap,
   FaSyncAlt,
-  FaBars,
-  FaTimes,
-  FaUserCircle,
-  FaBell,
+  FaPlus,
+  FaUpload,
+  FaArrowRight,
+  FaRobot,
+  FaNetworkWired
 } from "react-icons/fa";
+import Navbar from "../../components/Navbar/Navbar";
 
 function Dashboard() {
-  // =====================================================
-  // USER
-  // =====================================================
-
   const [user, setUser] = useState(null);
-
-  // =====================================================
-  // SIDEBAR
-  // =====================================================
-
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-
-  // =====================================================
-  // DASHBOARD COUNTS
-  // =====================================================
-
+  
   const [employeeCount, setEmployeeCount] = useState(0);
   const [projectCount, setProjectCount] = useState(0);
   const [documentCount, setDocumentCount] = useState(0);
   const [relationshipCount, setRelationshipCount] = useState(0);
-
-  // =====================================================
-  // RECENT DOCUMENTS
-  // =====================================================
-
   const [recentDocuments, setRecentDocuments] = useState([]);
-
-  // =====================================================
-  // LOADING STATES
-  // =====================================================
 
   const [loadingEmployees, setLoadingEmployees] = useState(false);
   const [loadingProjects, setLoadingProjects] = useState(false);
   const [loadingDocuments, setLoadingDocuments] = useState(false);
   const [loadingRelationships, setLoadingRelationships] = useState(false);
-
   const [refreshing, setRefreshing] = useState(false);
-
-  // =====================================================
-  // LOAD USER
-  // =====================================================
+  const [lastUpdated, setLastUpdated] = useState(new Date());
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
-
-    if (!storedUser) {
-      return;
-    }
-
+    if (!storedUser) return;
     try {
-      const parsedUser = JSON.parse(storedUser);
-      setUser(parsedUser);
+      setUser(JSON.parse(storedUser));
     } catch (error) {
       console.error("User data error:", error);
-
       localStorage.removeItem("user");
       localStorage.removeItem("token");
-
       window.location.href = "/";
     }
   }, []);
 
-  // =====================================================
-  // USER ROLE
-  // =====================================================
-
-  const userRole = user?.role || "Employee";
-
-  // =====================================================
-  // USER NAME
-  // =====================================================
-
   const userName = user?.username || user?.name || "User";
-
-  // =====================================================
-  // AUTH CONFIG
-  // =====================================================
 
   const getAuthConfig = useCallback(() => {
     const token = localStorage.getItem("token");
-
     return {
-      headers: token
-        ? {
-            Authorization: `Bearer ${token}`,
-          }
-        : {},
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
     };
   }, []);
 
-  // =====================================================
-  // SIDEBAR TOGGLE
-  // =====================================================
-
   const toggleSidebar = () => {
-    setSidebarOpen((previousState) => !previousState);
+    setSidebarOpen((prev) => !prev);
   };
 
-  // =====================================================
-  // FETCH EMPLOYEE COUNT
-  // =====================================================
-
   const fetchEmployeeCount = useCallback(async () => {
-    if (!user) {
-      return;
-    }
-
+    if (!user) return;
     try {
       setLoadingEmployees(true);
-
-      const response = await axios.get(
-        `${API_URL}/api/employees`,
-        getAuthConfig(),
-      );
-
-      console.log("Employee API Response:", response.data);
-
-      if (typeof response.data?.count === "number") {
-        setEmployeeCount(response.data.count);
-      } else if (Array.isArray(response.data?.employees)) {
-        setEmployeeCount(response.data.employees.length);
-      } else if (Array.isArray(response.data)) {
-        setEmployeeCount(response.data.length);
-      } else {
-        setEmployeeCount(0);
-      }
+      const response = await axios.get(`${API_URL}/api/employees`, getAuthConfig());
+      if (typeof response.data?.count === "number") setEmployeeCount(response.data.count);
+      else if (Array.isArray(response.data?.employees)) setEmployeeCount(response.data.employees.length);
+      else if (Array.isArray(response.data)) setEmployeeCount(response.data.length);
+      else setEmployeeCount(0);
     } catch (error) {
-      console.error(
-        "Dashboard Employee Count Error:",
-        error.response?.data || error.message,
-      );
-
+      console.error("Dashboard Employee Count Error:", error);
       setEmployeeCount(0);
     } finally {
       setLoadingEmployees(false);
     }
   }, [user, getAuthConfig]);
 
-  // =====================================================
-  // FETCH PROJECT COUNT
-  // =====================================================
-
   const fetchProjectCount = useCallback(async () => {
     try {
       setLoadingProjects(true);
-
-      const response = await axios.get(
-        `${API_URL}/api/projects`,
-        getAuthConfig(),
-      );
-
-      console.log("Project API Response:", response.data);
-
-      if (typeof response.data?.count === "number") {
-        setProjectCount(response.data.count);
-      } else if (Array.isArray(response.data?.projects)) {
-        setProjectCount(response.data.projects.length);
-      } else if (Array.isArray(response.data)) {
-        setProjectCount(response.data.length);
-      } else {
-        setProjectCount(0);
-      }
+      const response = await axios.get(`${API_URL}/api/projects`, getAuthConfig());
+      if (typeof response.data?.count === "number") setProjectCount(response.data.count);
+      else if (Array.isArray(response.data?.projects)) setProjectCount(response.data.projects.length);
+      else if (Array.isArray(response.data)) setProjectCount(response.data.length);
+      else setProjectCount(0);
     } catch (error) {
-      console.error(
-        "Dashboard Project Count Error:",
-        error.response?.data || error.message,
-      );
-
+      console.error("Dashboard Project Count Error:", error);
       setProjectCount(0);
     } finally {
       setLoadingProjects(false);
     }
   }, [getAuthConfig]);
 
-  // =====================================================
-  // FETCH DOCUMENT DATA
-  // =====================================================
-
   const fetchDocumentData = useCallback(async () => {
     try {
       setLoadingDocuments(true);
-
-      const response = await axios.get(
-        `${API_URL}/api/documents`,
-        getAuthConfig(),
-      );
-
-      console.log("Document API Response:", response.data);
-
+      const response = await axios.get(`${API_URL}/api/documents`, getAuthConfig());
       let documentData = [];
+      if (Array.isArray(response.data?.documents)) documentData = response.data.documents;
+      else if (Array.isArray(response.data)) documentData = response.data;
 
-      if (Array.isArray(response.data?.documents)) {
-        documentData = response.data.documents;
-      } else if (Array.isArray(response.data)) {
-        documentData = response.data;
-      }
-
-      if (typeof response.data?.count === "number") {
-        setDocumentCount(response.data.count);
-      } else {
-        setDocumentCount(documentData.length);
-      }
+      if (typeof response.data?.count === "number") setDocumentCount(response.data.count);
+      else setDocumentCount(documentData.length);
 
       const sortedDocuments = [...documentData].sort((a, b) => {
         const dateA = new Date(a.updatedAt || a.createdAt || 0);
         const dateB = new Date(b.updatedAt || b.createdAt || 0);
-
         return dateB - dateA;
       });
-
       setRecentDocuments(sortedDocuments.slice(0, 5));
     } catch (error) {
-      console.error(
-        "Dashboard Document Count Error:",
-        error.response?.data || error.message,
-      );
-
+      console.error("Dashboard Document Count Error:", error);
       setDocumentCount(0);
       setRecentDocuments([]);
     } finally {
@@ -246,77 +118,40 @@ function Dashboard() {
     }
   }, [getAuthConfig]);
 
-  // =====================================================
-  // FETCH RELATIONSHIP COUNT
-  // =====================================================
-
   const fetchRelationshipCount = useCallback(async () => {
     try {
       setLoadingRelationships(true);
-
-      const response = await axios.get(
-        `${API_URL}/api/relationships`,
-        getAuthConfig(),
-      );
-
-      console.log("Relationship API Response:", response.data);
-
-      if (typeof response.data?.count === "number") {
-        setRelationshipCount(response.data.count);
-      } else if (Array.isArray(response.data?.relationships)) {
-        setRelationshipCount(response.data.relationships.length);
-      } else if (Array.isArray(response.data)) {
-        setRelationshipCount(response.data.length);
-      } else {
-        setRelationshipCount(0);
-      }
+      const response = await axios.get(`${API_URL}/api/relationships`, getAuthConfig());
+      if (typeof response.data?.count === "number") setRelationshipCount(response.data.count);
+      else if (Array.isArray(response.data?.relationships)) setRelationshipCount(response.data.relationships.length);
+      else if (Array.isArray(response.data)) setRelationshipCount(response.data.length);
+      else setRelationshipCount(0);
     } catch (error) {
-      console.error(
-        "Dashboard Relationship Count Error:",
-        error.response?.data || error.message,
-      );
-
+      console.error("Dashboard Relationship Count Error:", error);
       setRelationshipCount(0);
     } finally {
       setLoadingRelationships(false);
     }
   }, [getAuthConfig]);
 
-  // =====================================================
-  // INITIAL DATA LOAD
-  // =====================================================
-
   useEffect(() => {
-    if (!user) {
-      return;
-    }
-
+    if (!user) return;
     fetchEmployeeCount();
     fetchProjectCount();
     fetchDocumentData();
     fetchRelationshipCount();
-  }, [
-    user,
-    fetchEmployeeCount,
-    fetchProjectCount,
-    fetchDocumentData,
-    fetchRelationshipCount,
-  ]);
-
-  // =====================================================
-  // REFRESH DASHBOARD
-  // =====================================================
+  }, [user, fetchEmployeeCount, fetchProjectCount, fetchDocumentData, fetchRelationshipCount]);
 
   const refreshDashboard = async () => {
     try {
       setRefreshing(true);
-
       await Promise.all([
         fetchEmployeeCount(),
         fetchProjectCount(),
         fetchDocumentData(),
         fetchRelationshipCount(),
       ]);
+      setLastUpdated(new Date());
     } catch (error) {
       console.error("Dashboard Refresh Error:", error);
     } finally {
@@ -324,324 +159,184 @@ function Dashboard() {
     }
   };
 
-  // =====================================================
-  // RETURN
-  // =====================================================
-
   return (
     <div className="dashboard">
-      {/* =================================================
-          SIDEBAR
-      ================================================= */}
+      
+      <Navbar />
+      <main className="dashboard-main">
 
-      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-
-      {/* =================================================
-          MAIN CONTENT
-      ================================================= */}
-
-      <main className="main">
-        {/* =================================================
-            DASHBOARD HEADER
-        ================================================= */}
-
-        <header className="dashboard-header">
-          {/* LEFT SIDE */}
-
-          <div className="dashboard-header-left">
-            <button
-              type="button"
-              className="dashboard-menu-button"
-              onClick={toggleSidebar}
-              aria-label={
-                sidebarOpen ? "Close navigation menu" : "Open navigation menu"
-              }
-              title={sidebarOpen ? "Close menu" : "Open menu"}
-            >
-              {sidebarOpen ? <FaTimes /> : <FaBars />}
-            </button>
-
-            <div className="dashboard-header-title">
-              <span>Enterprise Knowledge Management System</span>
-            </div>
-          </div>
-
-          {/* RIGHT SIDE */}
-
-          <nav
-            className="dashboard-header-nav"
-            aria-label="Dashboard navigation"
-          >
-            {/* ABOUT US */}
-
-            <Link to="/about">About Us</Link>
-
-            {/* HELP */}
-
-            <Link to="/help">Help</Link>
-
-            {/* CONTACT US */}
-
-            <Link to="/contact">Contact Us</Link>
-
-            {/* NOTIFICATIONS */}
-
-            <button
-              type="button"
-              className="header-icon-button"
-              title="Notifications"
-              aria-label="Notifications"
-            >
-              <FaBell />
-            </button>
-
-            {/* PROFILE */}
-
-            <Link to="/profile" className="header-profile-link" title="Profile">
-              <FaUserCircle />
-              <span>Profile</span>
-            </Link>
-          </nav>
-        </header>
-
-        {/* =================================================
-            DASHBOARD CONTENT
-        ================================================= */}
-
-        <div className="content">
-          {/* =================================================
-              WELCOME SECTION
-          ================================================= */}
-
-          <section className="welcome-section">
-            <div className="welcome-content">
-              <div className="welcome-text">
-                <h2>Welcome back, {userName} 👋</h2>
-
-                <p>Welcome to the Enterprise Knowledge Management System.</p>
-
-                <span className="user-role">{userRole}</span>
+        {/* ================= CONTENT ================= */}
+        <div className="dashboard-content">
+          
+          <section className="dashboard-overview">
+            <div className="overview-header">
+              <div>
+                <h2>Welcome back, {userName}</h2>
+                <p>Here’s an overview of your enterprise knowledge environment.</p>
               </div>
-
-              <div className="welcome-actions">
+              <div className="overview-actions">
+                <span className="last-updated">Last updated: {lastUpdated.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
                 <button
                   type="button"
                   className="refresh-button"
                   onClick={refreshDashboard}
                   disabled={refreshing}
                 >
-                  <FaSyncAlt
-                    className={
-                      refreshing ? "refresh-icon spinning" : "refresh-icon"
-                    }
-                  />
-
+                  <FaSyncAlt className={refreshing ? "spinning" : ""} />
                   {refreshing ? "Refreshing..." : "Refresh"}
                 </button>
               </div>
             </div>
           </section>
 
-          {/* =================================================
-              DASHBOARD CARDS
-          ================================================= */}
-
-          <section className="cards">
-            {/* EMPLOYEES */}
-
-            <div className="card">
-              <div
-                className="icon"
-                style={{
-                  background: "#4facfe",
-                }}
-              >
-                <FaUsers />
+          {/* ================= KPI SECTION ================= */}
+          <section className="metrics-row">
+            <div className="metric-card">
+              <div className="metric-icon"><FaUsers /></div>
+              <div className="metric-info">
+                <span className="metric-label">Employees</span>
+                <span className="metric-value">{loadingEmployees ? "..." : employeeCount}</span>
+                <span className="metric-sub">Active profiles</span>
               </div>
-
-              <h3>Total Employees</h3>
-
-              <p>{loadingEmployees ? "..." : employeeCount}</p>
             </div>
-
-            {/* PROJECTS */}
-
-            <div className="card">
-              <div
-                className="icon"
-                style={{
-                  background: "#43e97b",
-                }}
-              >
-                <FaProjectDiagram />
+            <div className="metric-card">
+              <div className="metric-icon"><FaProjectDiagram /></div>
+              <div className="metric-info">
+                <span className="metric-label">Projects</span>
+                <span className="metric-value">{loadingProjects ? "..." : projectCount}</span>
+                <span className="metric-sub">Enterprise initiatives</span>
               </div>
-
-              <h3>Total Projects</h3>
-
-              <p>{loadingProjects ? "..." : projectCount}</p>
             </div>
-
-            {/* DOCUMENTS */}
-
-            <div className="card">
-              <div
-                className="icon"
-                style={{
-                  background: "#fa709a",
-                }}
-              >
-                <FaFileAlt />
+            <div className="metric-card">
+              <div className="metric-icon"><FaFileAlt /></div>
+              <div className="metric-info">
+                <span className="metric-label">Documents</span>
+                <span className="metric-value">{loadingDocuments ? "..." : documentCount}</span>
+                <span className="metric-sub">Indexed files</span>
               </div>
-
-              <h3>Total Documents</h3>
-
-              <p>{loadingDocuments ? "..." : documentCount}</p>
             </div>
-
-            {/* KNOWLEDGE GRAPH */}
-
-            <div className="card">
-              <div
-                className="icon"
-                style={{
-                  background: "#667eea",
-                }}
-              >
-                <FaSitemap />
+            <div className="metric-card">
+              <div className="metric-icon"><FaSitemap /></div>
+              <div className="metric-info">
+                <span className="metric-label">Relationships</span>
+                <span className="metric-value">{loadingRelationships ? "..." : relationshipCount}</span>
+                <span className="metric-sub">Graph connections</span>
               </div>
-
-              <h3>Knowledge Graph</h3>
-
-              <p>{loadingRelationships ? "..." : relationshipCount}</p>
             </div>
           </section>
 
-          {/* =================================================
-              LOWER DASHBOARD SECTIONS
-          ================================================= */}
+          <div className="dashboard-layout">
+            <div className="dashboard-column-main">
+              
+              {/* ================= KNOWLEDGE OVERVIEW ================= */}
+              <section className="panel platform-overview-panel">
+                <div className="panel-header">
+                  <h3>Knowledge Platform Overview</h3>
+                </div>
+                <div className="platform-workflow-container">
+                  <p className="workflow-desc">KnowSphere connects isolated enterprise data into a unified, intelligent graph.</p>
+                  <div className="platform-workflow">
+                     <div className="workflow-step">
+                        <div className="workflow-icon"><FaUsers /></div>
+                        <span>Employees</span>
+                     </div>
+                     <div className="workflow-arrow"><FaArrowRight /></div>
+                     <div className="workflow-step">
+                        <div className="workflow-icon"><FaProjectDiagram /></div>
+                        <span>Projects</span>
+                     </div>
+                     <div className="workflow-arrow"><FaArrowRight /></div>
+                     <div className="workflow-step">
+                        <div className="workflow-icon"><FaFileAlt /></div>
+                        <span>Documents</span>
+                     </div>
+                     <div className="workflow-arrow"><FaArrowRight /></div>
+                     <div className="workflow-step final">
+                        <div className="workflow-icon"><FaNetworkWired /></div>
+                        <span>Knowledge Graph</span>
+                     </div>
+                  </div>
+                </div>
+              </section>
 
-          <section className="dashboard-sections">
-            {/* RECENT ACTIVITY */}
-
-            <div className="recent-activity">
-              <h3>Recent Activity</h3>
-
-              <ul>
-                <li>Welcome to Enterprise Knowledge Management System.</li>
-
-                <li>
-                  You are logged in as <strong>{userRole}</strong>.
-                </li>
-
-                <li>
-                  Total employees currently available:{" "}
-                  <strong>{loadingEmployees ? "..." : employeeCount}</strong>
-                </li>
-
-                <li>
-                  Total projects currently available:{" "}
-                  <strong>{loadingProjects ? "..." : projectCount}</strong>
-                </li>
-
-                <li>
-                  Total documents currently available:{" "}
-                  <strong>{loadingDocuments ? "..." : documentCount}</strong>
-                </li>
-
-                <li>
-                  Knowledge graph relationships:{" "}
-                  <strong>
-                    {loadingRelationships ? "..." : relationshipCount}
-                  </strong>
-                </li>
-
-                <li>Explore documents, projects and knowledge graphs.</li>
-              </ul>
-            </div>
-
-            {/* RECENT DOCUMENTS */}
-
-            <div className="recent-documents">
-              <h3>Recent Documents</h3>
-
-              <div className="recent-documents-table-wrapper">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Document</th>
-                      <th>Type</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                    {loadingDocuments ? (
+              {/* ================= RECENT DOCUMENTS ================= */}
+              <section className="panel recent-documents-panel">
+                <div className="panel-header">
+                  <h3>Recently Added Documents</h3>
+                  <Link to="/documents" className="view-all">View All <FaArrowRight /></Link>
+                </div>
+                <div className="table-responsive">
+                  <table className="enterprise-table">
+                    <thead>
                       <tr>
-                        <td colSpan="3">Loading documents...</td>
+                        <th>Document Name</th>
+                        <th>Category</th>
+                        <th>Status</th>
                       </tr>
-                    ) : recentDocuments.length > 0 ? (
-                      recentDocuments.map((document, index) => {
-                        const documentStatus = (document.status || "Active")
-                          .replace(/\s/g, "")
-                          .toLowerCase();
-
-                        return (
-                          <tr key={document._id || document.id || index}>
-                            <td>
-                              <span className="recent-document-name">
-                                {document.title ||
-                                  document.name ||
-                                  "Untitled Document"}
-                              </span>
-                            </td>
-
-                            <td>
-                              <span className="recent-document-category">
-                                {document.category ||
-                                  document.type ||
-                                  "Not Available"}
-                              </span>
-                            </td>
-
-                            <td>
-                              <span
-                                className={`recent-document-status ${documentStatus}`}
-                              >
-                                {document.status || "Active"}
-                              </span>
-                            </td>
+                    </thead>
+                    <tbody>
+                      {loadingDocuments ? (
+                        <tr><td colSpan="3" className="loading-cell">Loading documents...</td></tr>
+                      ) : recentDocuments.length > 0 ? (
+                        recentDocuments.map((doc, idx) => (
+                          <tr key={doc._id || doc.id || idx}>
+                            <td className="doc-name">{doc.title || doc.name || "Untitled"}</td>
+                            <td><span className="enterprise-badge">{doc.category || doc.type || "N/A"}</span></td>
+                            <td><span className="enterprise-badge outline">{doc.status || "Active"}</span></td>
                           </tr>
-                        );
-                      })
-                    ) : (
-                      <tr>
-                        <td colSpan="3" className="no-recent-documents">
-                          No documents available yet.
-                        </td>
-                      </tr>
-                    )}
-                  </tbody>
-                </table>
-              </div>
+                        ))
+                      ) : (
+                        <tr><td colSpan="3" className="empty-cell">No documents found.</td></tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </section>
             </div>
-          </section>
-        </div>
 
-        {/* =================================================
-            FOOTER
-        ================================================= */}
+            <div className="dashboard-column-side">
+              
+              {/* ================= QUICK ACTIONS ================= */}
+              <section className="panel quick-actions-panel">
+                <div className="panel-header">
+                  <h3>Quick Actions</h3>
+                </div>
+                <div className="quick-actions-list">
+                  <Link to="/employees/new" className="action-row">
+                    <div className="action-row-icon"><FaPlus /></div>
+                    <div className="action-row-text">Add Employee</div>
+                  </Link>
+                  <Link to="/projects/new" className="action-row">
+                    <div className="action-row-icon"><FaProjectDiagram /></div>
+                    <div className="action-row-text">Create Project</div>
+                  </Link>
+                  <Link to="/documents/upload" className="action-row">
+                    <div className="action-row-icon"><FaUpload /></div>
+                    <div className="action-row-text">Upload Document</div>
+                  </Link>
+                  <Link to="/graph" className="action-row">
+                    <div className="action-row-icon"><FaSitemap /></div>
+                    <div className="action-row-text">View Knowledge Graph</div>
+                  </Link>
+                </div>
+              </section>
 
-        <footer className="dashboard-footer">
-          <div className="footer-content">
-            <p>
-              © {new Date().getFullYear()} Enterprise Knowledge Management
-              System
-            </p>
+              {/* ================= AI PROMO ================= */}
+              <section className="panel ai-promo-panel">
+                <div className="ai-promo-icon-wrap">
+                  <FaRobot />
+                </div>
+                <h3>Ask your enterprise knowledge</h3>
+                <p>Explore employees, projects, documents and relationships using the KnowSphere AI Assistant.</p>
+                <Link to="/ai-assistant" className="btn-primary">Open AI Assistant</Link>
+              </section>
 
-            <div className="footer-links">
-              Knowledge • Collaboration • Intelligence
             </div>
           </div>
+        </div>
+
+        <footer className="dashboard-footer">
+          <p>© {new Date().getFullYear()} KnowSphere Enterprise</p>
         </footer>
       </main>
     </div>

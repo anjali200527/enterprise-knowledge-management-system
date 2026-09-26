@@ -1,4 +1,5 @@
-import "./Relationships.css";
+import "./Relationships.css";import Navbar from "../../components/Navbar/Navbar";
+
 
 import { useEffect, useState } from "react";
 
@@ -415,6 +416,7 @@ function Relationships() {
 
   return (
     <div className="relationships-container">
+      <Navbar />
       {/* ================= HEADER ================= */}
 
       <div className="relationships-header">

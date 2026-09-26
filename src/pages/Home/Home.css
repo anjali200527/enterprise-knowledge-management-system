@@ -1,0 +1,9 @@
+.home-container {
+  min-height: 100vh;
+  background-color: var(--ks-bg);
+  color: var(--ks-text);
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

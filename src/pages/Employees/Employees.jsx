@@ -1,4 +1,5 @@
-import "./Employees.css";
+import "./Employees.css";import Navbar from "../../components/Navbar/Navbar";
+
 
 import { useEffect, useState } from "react";
 
@@ -443,6 +444,7 @@ function Employees() {
 
   return (
     <div className="employee-container">
+      <Navbar />
 
       {/* ================= HEADER ================= */}
 

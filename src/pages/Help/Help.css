@@ -1,366 +1,353 @@
-.help-page {
+/* =========================================================
+   HELP PAGE CSS - Enterprise Theme
+========================================================= */
+
+.help-page-wrapper {
+  display: flex;
   min-height: 100vh;
-  background: #f5f9fd;
-  color: #18324a;
+  background-color: var(--ks-bg);
+  color: var(--ks-text);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* HEADER */
-.help-header {
-  background: linear-gradient(135deg, var(--accent-primary), #1976b9);
-  color: white;
-  padding: 45px 7%;
+.help-main-area {
+  flex: 1;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+      transition: margin-left 0.3s ease;
+
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+
+/* ================= HEADER ================= */
+.help-header {
+  background: var(--ks-card);
+  padding: 1.5rem 2.5rem;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 30px;
+  border-bottom: 1px solid var(--ks-border);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.help-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.help-menu-button {
+  background: transparent;
+  border: 1px solid var(--ks-border);
+  color: var(--ks-gray);
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--ks-transition);
+}
+
+.help-menu-button:hover {
+  background: var(--ks-light);
+  color: var(--ks-black);
 }
 
 .help-label {
   display: inline-block;
-  color: #1976b9;
-  font-size: 13px;
+  color: var(--ks-gray);
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 1.5px;
-  margin-bottom: 8px;
-}
-
-.help-header .help-label {
-  color: #dff3ff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
 }
 
 .help-header h1 {
-  margin: 0 0 10px;
-  font-size: 38px;
+  margin: 0 0 6px;
+  font-size: 1.8rem;
   font-weight: 700;
+  color: var(--ks-black);
 }
 
 .help-header p {
   margin: 0;
-  color: #e2f2ff;
-  font-size: 16px;
+  color: var(--ks-gray);
+  font-size: 0.95rem;
 }
 
 .help-back-button {
   display: flex;
   align-items: center;
-  gap: 9px;
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  background: rgba(255, 255, 255, 0.12);
-  color: white;
-  padding: 11px 18px;
-  border-radius: 8px;
+  gap: 8px;
+  border: 1px solid var(--ks-border);
+  background: var(--ks-card);
+  color: var(--ks-black);
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  font-size: 14px;
+  font-size: 0.85rem;
   font-weight: 600;
-  transition: 0.25s ease;
   white-space: nowrap;
+  transition: var(--ks-transition);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 }
 
 .help-back-button:hover {
-  background: white;
-  color: var(--accent-primary);
+  background: var(--ks-light);
+  transform: translateY(-1px);
 }
 
-/* CONTENT */
+/* ================= CONTENT ================= */
 .help-content {
-  width: 86%;
+  padding: 2.5rem;
+  flex: 1;
+  
+  
+  
+  box-sizing: border-box;
+
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 45px 0;
 }
 
-/* WELCOME */
+/* ================= WELCOME ================= */
 .help-welcome {
   display: flex;
   align-items: center;
   gap: 22px;
-  background: white;
-  border: 1px solid #dceaf4;
-  border-radius: 14px;
-  padding: 25px 28px;
-  margin-bottom: 45px;
-  box-shadow: 0 5px 18px rgba(15, 76, 129, 0.07);
+  background: var(--ks-card);
+  border: 1px solid var(--ks-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
 }
 
 .help-welcome-icon {
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   flex-shrink: 0;
   border-radius: 50%;
-  background: #e7f4fc;
-  color: #1976b9;
+  background: var(--ks-bg-secondary);
+  color: var(--ks-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
+  font-size: 30px;
 }
 
 .help-welcome h2 {
-  margin: 0 0 7px;
-  font-size: 24px;
-  color: var(--accent-primary);
+  margin: 0 0 8px;
+  font-size: 1.6rem;
+  color: var(--ks-black);
 }
 
 .help-welcome p {
   margin: 0;
-  color: #60788c;
+  color: var(--ks-gray);
   line-height: 1.6;
+  font-size: 1rem;
 }
 
-/* SECTION */
+/* ================= SECTION ================= */
 .help-section {
-  margin-bottom: 50px;
+  margin-bottom: 4rem;
 }
 
 .help-section-heading {
-  margin-bottom: 25px;
+  margin-bottom: 2rem;
 }
 
 .help-section-heading h2 {
-  margin: 0 0 8px;
-  color: var(--accent-primary);
-  font-size: 30px;
+  margin: 0 0 10px;
+  color: var(--ks-black);
+  font-size: 1.8rem;
 }
 
 .help-section-heading p {
   margin: 0;
-  color: #657b8d;
+  color: var(--ks-gray);
 }
 
-/* HELP GRID */
+/* ================= HELP GRID ================= */
 .help-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 1.5rem;
 }
 
 .help-card {
-  background: white;
-  border: 1px solid #dceaf4;
-  border-radius: 12px;
-  padding: 22px;
+  background: var(--ks-card);
+  border: 1px solid var(--ks-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
   display: flex;
   align-items: flex-start;
-  gap: 17px;
-  min-height: 145px;
-  box-sizing: border-box;
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
+  gap: 1rem;
+  transition: var(--ks-transition);
 }
 
 .help-card:hover {
-  transform: translateY(-4px);
-  border-color: #9ac9e5;
-  box-shadow: 0 8px 22px rgba(15, 76, 129, 0.10);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
 }
 
 .help-card-icon {
-  width: 45px;
-  height: 45px;
+  width: 48px;
+  height: 48px;
   flex-shrink: 0;
-  border-radius: 10px;
-  background: #e8f4fb;
-  color: #1976b9;
+  border-radius: var(--radius-md);
+  background: var(--ks-bg-secondary);
+  color: var(--ks-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 1.4rem;
 }
 
 .help-card h3 {
-  margin: 2px 0 7px;
-  color: #183f5d;
-  font-size: 17px;
+  margin: 0 0 8px;
+  color: var(--ks-black);
+  font-size: 1.1rem;
 }
 
 .help-card p {
   margin: 0;
-  color: #687f91;
-  font-size: 14px;
-  line-height: 1.6;
+  color: var(--ks-gray);
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
-/* FAQ */
-.quick-help-section {
-  margin-top: 10px;
-}
-
+/* ================= FAQ ================= */
 .faq-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  gap: 1.5rem;
 }
 
 .faq-item {
-  background: white;
-  border-left: 4px solid #1976b9;
-  border-radius: 10px;
-  padding: 20px 22px;
-  box-shadow: 0 4px 15px rgba(15, 76, 129, 0.06);
+  background: var(--ks-card);
+  border-left: 4px solid var(--ks-primary);
+  border-radius: var(--radius-md);
+  border-top: 1px solid var(--ks-border);
+  border-right: 1px solid var(--ks-border);
+  border-bottom: 1px solid var(--ks-border);
+  padding: 1.5rem;
 }
 
 .faq-item h3 {
-  margin: 0 0 8px;
-  color: #183f5d;
-  font-size: 16px;
+  margin: 0 0 10px;
+  color: var(--ks-black);
+  font-size: 1.1rem;
 }
 
 .faq-item p {
   margin: 0;
-  color: #687f91;
-  font-size: 14px;
+  color: var(--ks-gray);
+  font-size: 0.95rem;
   line-height: 1.6;
 }
 
-/* SUPPORT */
+/* ================= SUPPORT ================= */
 .help-support {
   text-align: center;
-  background: linear-gradient(135deg, #eaf6fd, #f7fbfe);
-  border: 1px solid #cfe6f4;
-  border-radius: 15px;
-  padding: 38px 25px;
-  margin-top: 10px;
+  background: var(--ks-card);
+  border: 1px solid var(--ks-border);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
+  margin-top: 2rem;
 }
 
 .help-support h2 {
-  margin: 0 0 10px;
-  color: var(--accent-primary);
-  font-size: 28px;
+  margin: 0 0 12px;
+  color: var(--ks-black);
+  font-size: 1.8rem;
 }
 
 .help-support p {
   max-width: 650px;
-  margin: 0 auto 20px;
-  color: #61798b;
+  margin: 0 auto 24px;
+  color: var(--ks-gray);
   line-height: 1.6;
 }
 
 .help-support button {
   border: none;
-  background: var(--accent-primary);
-  color: white;
+  background: var(--ks-primary);
+  color: var(--ks-card);
   padding: 12px 24px;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  font-size: 14px;
+  font-size: 0.95rem;
   font-weight: 600;
-  transition: 0.25s ease;
+  transition: var(--ks-transition);
 }
 
 .help-support button:hover {
-  background: #1976b9;
+  background: var(--ks-primary-hover);
   transform: translateY(-2px);
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 .help-footer {
   text-align: center;
-  padding: 25px 20px;
-  background: var(--accent-primary);
-  color: white;
+  padding: 2.5rem;
+  border-top: 1px solid var(--ks-border);
+  color: var(--ks-gray);
 }
 
 .help-footer p {
   margin: 0 0 6px;
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 
 .help-footer span {
-  color: #cce7f8;
-  font-size: 13px;
+  font-size: 0.8rem;
 }
 
-/* TABLET */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 1000px) {
-  .help-grid {
+  .help-grid, .faq-list {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .help-header {
-    padding: 40px 5%;
-  }
-
-  .help-content {
-    width: 90%;
-  }
 }
 
-/* MOBILE */
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .help-header {
     flex-direction: column;
     align-items: flex-start;
-    padding: 35px 6%;
+    padding: 1.5rem;
   }
-
-  .help-header h1 {
-    font-size: 30px;
-  }
-
-  .help-back-button {
-    width: fit-content;
-  }
-
   .help-content {
-    width: 88%;
-    padding: 30px 0;
-  }
-
-  .help-welcome {
-    align-items: flex-start;
-    padding: 20px;
-  }
-
-  .help-grid,
-  .faq-list {
+    padding: 1.5rem;
+  
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+  .help-grid, .faq-list {
     grid-template-columns: 1fr;
   }
-
-  .help-section-heading h2 {
-    font-size: 26px;
-  }
-}
-
-/* SMALL MOBILE */
-@media (max-width: 450px) {
-  .help-header h1 {
-    font-size: 26px;
-  }
-
-  .help-header p {
-    font-size: 14px;
-  }
-
   .help-welcome {
     flex-direction: column;
-  }
-
-  .help-card {
-    padding: 18px;
-  }
-
-  .help-card h3 {
-    font-size: 16px;
-  }
-
-  .help-support {
-    padding: 30px 18px;
-  }
-}
-
-/* ACCESSIBILITY */
-.help-back-button:focus-visible,
-.help-support button:focus-visible {
-  outline: 3px solid rgba(25, 118, 185, 0.35);
-  outline-offset: 3px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .help-card,
-  .help-back-button,
-  .help-support button {
-    transition: none;
+    align-items: flex-start;
   }
 }

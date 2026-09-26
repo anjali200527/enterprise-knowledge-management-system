@@ -12,7 +12,7 @@ import {
   FaHistory,
 } from "react-icons/fa";
 
-import Sidebar from "../../components/Sidebar/Sidebar";
+
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
@@ -304,7 +304,7 @@ function ChatHistory() {
     <div className="chat-history-dashboard">
       {/* SIDEBAR */}
 
-      <Sidebar />
+      
 
       {/* MAIN */}
 

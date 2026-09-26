@@ -163,9 +163,11 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
             LOGO
         ================================================= */}
 
-        <div className="logo">
-          <h1>EKMS</h1>
-          <p>Enterprise AI</p>
+        <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', justifyContent: 'center', padding: '1rem 0' }}>
+          <div style={{ width: '36px', height: '36px', backgroundColor: '#111111', color: '#ffffff', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: '50%', fontWeight: '700', fontSize: '1.2rem', flexShrink: 0 }}>K</div>
+          <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
+            <span style={{ color: '#111111', fontWeight: '700', fontSize: '1.25rem', lineHeight: '1' }}>KnowSphere</span>
+          </div>
         </div>
 
         {/* =================================================

@@ -177,7 +177,7 @@
 }
 
 .relationships-table tbody tr:hover td {
-  background: #f8fafc;
+  background: var(--bg-primary);
 }
 
 .relationships-table small {
@@ -318,7 +318,7 @@
   border: none;
   border-radius: 50%;
 
-  background: #f1f5f9;
+  background: var(--bg-secondary);
   color: #374151;
 
   cursor: pointer;
@@ -328,7 +328,7 @@
 }
 
 .relationship-modal-close:hover {
-  background: #e2e8f0;
+  background: var(--border-color);
 }
 
 /* =========================================================

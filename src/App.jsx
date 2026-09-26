@@ -11,6 +11,7 @@ import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
+import Home from "./pages/Home/Home";
 
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Employees from "./pages/Employees/Employees";
@@ -69,9 +70,19 @@ function App() {
             PUBLIC ROUTES
         ==================================================== */}
 
-        {/* LOGIN */}
+        {/* HOME */}
         <Route
           path="/"
+          element={
+            <PublicRoute>
+              <Home />
+            </PublicRoute>
+          }
+        />
+
+        {/* LOGIN */}
+        <Route
+          path="/login"
           element={
             <PublicRoute>
               <Login />

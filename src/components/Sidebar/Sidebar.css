@@ -13,7 +13,7 @@
 
   background: var(--bg-sidebar);
   border-right: 1px solid var(--border-color);
-  color: white;
+  color: var(--ks-text);
 
   display: flex;
   flex-direction: column;
@@ -75,9 +75,9 @@
   border: none;
   border-radius: 50%;
 
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.05);
 
-  color: white;
+  color: var(--ks-text);
 
   font-size: 20px;
 
@@ -97,8 +97,8 @@
 ========================================================= */
 
 .sidebar-close-button:hover {
-  background: rgba(255, 255, 255, 0.22);
-  color: white;
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--ks-text);
   transform: rotate(90deg);
 }
 
@@ -156,7 +156,7 @@
 .logo h1 {
   margin: 0 0 8px;
 
-  color: white;
+  color: var(--ks-text);
 
   font-size: 38px;
 
@@ -169,7 +169,7 @@
 .logo p {
   margin: 0;
 
-  color: #dcefff;
+  color: var(--ks-text-muted);
 
   font-size: 14px;
 }
@@ -186,9 +186,9 @@
 
   border-radius: 10px;
 
-  background: rgba(255, 255, 255, 0.10);
+  background: rgba(0, 0, 0, 0.03);
 
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 
   flex-shrink: 0;
 
@@ -199,7 +199,7 @@
 .sidebar-user h4 {
   margin: 0 0 4px;
 
-  color: white;
+  color: var(--ks-text);
 
   font-size: 15px;
 
@@ -216,7 +216,7 @@
 .sidebar-user p {
   margin: 0;
 
-  color: #cfe8ff;
+  color: var(--ks-text-muted);
 
   font-size: 12px;
 }
@@ -269,7 +269,7 @@
 
   box-sizing: border-box;
 
-  color: white;
+  color: var(--ks-text);
 
   text-decoration: none;
 
@@ -308,7 +308,8 @@
 ========================================================= */
 
 .sidebar ul li a:hover {
-  background: rgba(255, 255, 255, 0.1);
+  color: #111111;
+  background: #F7F7F7;
   border-left-color: var(--primary);
   padding-left: 18px;
 }
@@ -319,7 +320,8 @@
 ========================================================= */
 
 .sidebar ul li a.active {
-  background: rgba(255, 255, 255, 0.15);
+  color: #111111;
+  background: #F2F2F2;
   border-left-color: var(--primary);
   font-weight: 600;
 }
@@ -334,8 +336,8 @@
   margin-top: auto;
   padding: 15px;
   flex-shrink: 0;
-  background: rgba(0, 0, 0, 0.2);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
   box-sizing: border-box;
 }
 
@@ -351,7 +353,7 @@
 
   background: transparent;
 
-  color: white;
+  color: var(--ks-text);
 
   display: flex;
 
@@ -387,8 +389,8 @@
 
 
 .logout-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--ks-text);
 }
 
 
@@ -407,14 +409,14 @@
 
 
 .sidebar ul::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.15);
 
   border-radius: 10px;
 }
 
 
 .sidebar ul::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(0, 0, 0, 0.25);
 }
 
 

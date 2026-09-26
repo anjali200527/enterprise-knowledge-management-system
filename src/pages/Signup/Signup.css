@@ -54,7 +54,7 @@ align-items: center;
 
 width: 100%;
 
-background: white;
+background: var(--bg-card);
 
 border-radius: 10px;
 

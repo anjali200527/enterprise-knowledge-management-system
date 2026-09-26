@@ -111,7 +111,7 @@ function Signup() {
 
       // ================= GO TO LOGIN =================
 
-      navigate("/", {
+      navigate("/login", {
         replace: true,
       });
     } catch (error) {
@@ -141,7 +141,7 @@ function Signup() {
       <div className="signup-card">
         <h2>Create Your Account</h2>
 
-        <p>Enterprise Knowledge Management System</p>
+        <p>KnowSphere: Intelligent Enterprise Knowledge Platform</p>
 
         <form onSubmit={handleRegister}>
           {/* ================= FULL NAME ================= */}
@@ -240,7 +240,7 @@ function Signup() {
 
           <div className="back-login">
             Already have an account?
-            <Link to="/"> Login</Link>
+            <Link to="/login"> Login</Link>
           </div>
         </form>
       </div>

@@ -1,4 +1,5 @@
-import "./Documents.css";
+import "./Documents.css";import Navbar from "../../components/Navbar/Navbar";
+
 
 import { useEffect, useState } from "react";
 
@@ -523,6 +524,7 @@ function Documents() {
 
   return (
     <div className="documents-container">
+      <Navbar />
       {/* ================= HEADER ================= */}
 
       <div className="documents-header">

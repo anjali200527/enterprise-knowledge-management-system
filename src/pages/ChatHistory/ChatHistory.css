@@ -14,10 +14,12 @@
 
 .chat-history-main {
   flex: 1;
-  min-width: 0;
-  margin-left: 0;
-  display: flex;
+    display: flex;
   flex-direction: column;
+
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* =========================================================
@@ -163,7 +165,11 @@
    ========================================================= */
 
 .chat-history-content {
+  
+
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .chat-history-summary {
@@ -237,7 +243,9 @@
 
 .chat-card-content {
   flex: 1;
-  min-width: 0;
+    width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .chat-card-content h3 {
@@ -470,11 +478,11 @@
 }
 
 .chat-message.question {
-  background: #eff6ff;
+  background: #F7F7F7;
 }
 
 .chat-message.answer {
-  background: #f8fafc;
+  background: var(--bg-primary);
 }
 
 .message-label {
@@ -541,8 +549,12 @@
   }
 
   .chat-card-content {
-    width: calc(100% - 56px);
-  }
+    
+  
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
   .chat-card-actions {
     width: 100%;

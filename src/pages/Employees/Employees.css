@@ -215,7 +215,7 @@ transition: 0.2s;
 }
 
 .employee-table tbody tr:hover {
-background: #f8fafc;
+background: var(--bg-primary);
 }
 
 .employee-table tbody tr:last-child td {
@@ -435,7 +435,7 @@ border: none;
 
 border-radius: 8px;
 
-background: #f1f5f9;
+background: var(--bg-secondary);
 
 color: #64748b;
 
@@ -506,7 +506,7 @@ rgba(15, 76, 129, 0.12);
 }
 
 .form-group input:disabled {
-background: #f1f5f9;
+background: var(--bg-secondary);
 
 cursor: not-allowed;
 }
@@ -541,9 +541,9 @@ transition: 0.3s;
 }
 
 .cancel-btn {
-background: #e2e8f0;
+background: var(--border-color);
 
-color: #475569;
+color: var(--text-secondary);
 }
 
 .cancel-btn:hover:not(:disabled) {

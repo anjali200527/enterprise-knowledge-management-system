@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer className="footer">
       <p>
-        © 2026 Enterprise Knowledge Management System | Powered by React •
+        © 2026 KnowSphere | Powered by React •
         Node.js • Neo4j • Gemini AI
       </p>
     </footer>

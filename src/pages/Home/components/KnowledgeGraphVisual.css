@@ -1,0 +1,96 @@
+.kg-visual-section {
+  padding: 6rem 5%;
+  background-color: #F3F7FA;
+  color: var(--ks-text);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.kg-container {
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+  width: 100%;
+}
+
+.kg-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 5rem;
+}
+
+.kg-abstract-visual {
+  position: relative;
+  height: 400px;
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.kg-node {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--ks-bg-secondary);
+  border: 1px solid #2a2a2a;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: none;
+}
+
+.kg-node svg {
+  font-size: 1.5rem;
+  color: var(--ks-text);
+}
+
+.kg-node span {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #b5b5b5;
+}
+
+.employee-node { top: 10%; left: 20%; }
+.project-node { top: 40%; left: 50%; transform: translateX(-50%); }
+.document-node { bottom: 10%; right: 20%; }
+.relation-node { top: 20%; right: 20%; }
+
+.kg-line {
+  position: absolute;
+  background-color: #2a2a2a;
+  height: 1px;
+  transform-origin: 0 0;
+  z-index: 1;
+}
+
+.line-ep { width: 220px; top: 20%; left: 28%; transform: rotate(35deg); }
+.line-pd { width: 220px; top: 50%; left: 55%; transform: rotate(35deg); }
+.line-er { width: 300px; top: 22%; left: 30%; transform: rotate(5deg); }
+
+@media (max-width: 768px) {
+  .kg-abstract-visual {
+    height: 500px;
+  }
+  
+  .kg-node {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .employee-node { top: 5%; left: 50%; transform: translateX(-50%); }
+  .project-node { top: 35%; left: 50%; transform: translateX(-50%); }
+  .document-node { top: 65%; left: 50%; transform: translateX(-50%); }
+  .relation-node { /* display: none removed */ }
+  
+  .line-ep { width: 150px; top: 15%; left: 50%; transform: rotate(90deg); }
+  .line-pd { width: 150px; top: 45%; left: 50%; transform: rotate(90deg); }
+  .line-er { /* display: none removed */ }
+}

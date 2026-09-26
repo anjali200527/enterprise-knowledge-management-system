@@ -89,7 +89,7 @@
 
   margin-bottom: 25px;
 
-  background: white;
+  background: var(--bg-card);
 
   transition: 0.3s ease;
 
@@ -97,7 +97,7 @@
 }
 
 .search-project:focus {
-  border-color: #4facfe;
+  border-color: #111111;
 
   box-shadow:
     0 0 0 3px
@@ -163,7 +163,7 @@
 
   overflow-x: auto;
 
-  background: white;
+  background: var(--bg-card);
 
   border-radius: 12px;
 
@@ -300,7 +300,7 @@
 /* EDIT */
 
 .project-actions .edit {
-  background: #4facfe;
+  background: var(--ks-bg-secondary);
 }
 
 .project-actions .edit:hover {
@@ -367,7 +367,7 @@
 
   overflow-y: auto;
 
-  background: white;
+  background: var(--bg-card);
 
   border-radius: 15px;
 
@@ -506,7 +506,7 @@
 
   transition: 0.3s ease;
 
-  background: white;
+  background: var(--bg-card);
 }
 
 .form-group textarea {
@@ -518,7 +518,7 @@
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-  border-color: #4facfe;
+  border-color: #111111;
 
   box-shadow:
     0 0 0 3px

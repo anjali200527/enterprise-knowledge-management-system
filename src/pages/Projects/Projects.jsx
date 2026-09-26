@@ -1,4 +1,5 @@
-import "./Projects.css";
+import "./Projects.css";import Navbar from "../../components/Navbar/Navbar";
+
 
 import { useEffect, useState } from "react";
 
@@ -369,6 +370,7 @@ function Projects() {
 
   return (
     <div className="project-container">
+      <Navbar />
       {/* ================= HEADER ================= */}
 
       <div className="project-header">

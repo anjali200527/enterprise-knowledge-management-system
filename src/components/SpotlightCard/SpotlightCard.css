@@ -1,0 +1,20 @@
+.spotlight-card-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg, 12px);
+  background-color: var(--ks-bg-secondary);
+  border: 1px solid #333333;
+}
+
+.spotlight-effect {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.spotlight-card-wrapper > * {
+  position: relative;
+  z-index: 1;
+}
