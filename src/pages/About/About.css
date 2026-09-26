@@ -13,8 +13,9 @@
   flex-direction: column;
 
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .about-main-area {
@@ -24,8 +25,9 @@
       transition: margin-left 0.3s ease;
 
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 
@@ -114,8 +116,9 @@
   box-sizing: border-box;
 
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .about-section {
@@ -165,8 +168,9 @@
   text-align: center;
 
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .about-section-content h2 {
@@ -357,8 +361,9 @@
     padding: 1.5rem;
   
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
 }
   .purpose-grid {
     grid-template-columns: 1fr;

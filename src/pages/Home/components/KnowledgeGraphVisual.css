@@ -1,10 +1,9 @@
 .kg-visual-section {
   padding: 6rem 5%;
-  background-color: #F3F7FA;
-  color: var(--ks-text);
+  background-color: #FFFFFF;
+  color: #24313A;
   display: flex;
   justify-content: center;
-  overflow: hidden;
 }
 
 .kg-container {
@@ -17,7 +16,17 @@
   text-align: center;
   font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 5rem;
+  margin-bottom: 1rem;
+  color: #24313A;
+}
+
+.kg-description {
+  font-size: 1.15rem;
+  color: #64747D;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem auto;
+  line-height: 1.6;
 }
 
 .kg-abstract-visual {
@@ -37,25 +46,25 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  background-color: var(--ks-bg-secondary);
-  border: 1px solid #2a2a2a;
+  background-color: #FFFFFF;
+  border: 2px solid #DCE6EA;
   border-radius: 50%;
   width: 100px;
   height: 100px;
   justify-content: center;
   z-index: 2;
-  box-shadow: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .kg-node svg {
   font-size: 1.5rem;
-  color: var(--ks-text);
+  color: #39758A;
 }
 
 .kg-node span {
   font-size: 0.75rem;
   font-weight: 500;
-  color: #b5b5b5;
+  color: #24313A;
 }
 
 .employee-node { top: 10%; left: 20%; }
@@ -65,8 +74,8 @@
 
 .kg-line {
   position: absolute;
-  background-color: #2a2a2a;
-  height: 1px;
+  background-color: #DCE6EA;
+  height: 2px;
   transform-origin: 0 0;
   z-index: 1;
 }
@@ -88,9 +97,9 @@
   .employee-node { top: 5%; left: 50%; transform: translateX(-50%); }
   .project-node { top: 35%; left: 50%; transform: translateX(-50%); }
   .document-node { top: 65%; left: 50%; transform: translateX(-50%); }
-  .relation-node { /* display: none removed */ }
+  .relation-node { display: none; }
   
   .line-ep { width: 150px; top: 15%; left: 50%; transform: rotate(90deg); }
   .line-pd { width: 150px; top: 45%; left: 50%; transform: rotate(90deg); }
-  .line-er { /* display: none removed */ }
+  .line-er { display: none; }
 }

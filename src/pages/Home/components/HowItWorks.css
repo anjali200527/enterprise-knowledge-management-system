@@ -1,7 +1,7 @@
 .how-it-works-section {
   padding: 6rem 5%;
   background-color: #EAF3F6;
-  color: var(--ks-text);
+  color: #24313A;
   display: flex;
   justify-content: center;
 }
@@ -25,11 +25,12 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  color: #24313A;
 }
 
 .hiw-subtitle {
   font-size: 1.15rem;
-  color: #b5b5b5;
+  color: #64747D;
   line-height: 1.6;
 }
 
@@ -41,9 +42,10 @@
 }
 
 .hiw-step-card {
-  background-color: var(--ks-bg-secondary);
-  border: 1px solid #2a2a2a;
-  border-radius: 12px;
+  background-color: #FFFFFF;
+  border: 1px solid #DCE6EA;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(36,49,58,0.06);
   padding: 2.5rem;
   position: relative;
   max-width: 600px;
@@ -56,7 +58,7 @@
 .hiw-step-number {
   font-size: 1rem;
   font-weight: 700;
-  color: #777777;
+  color: #39758A;
   margin-bottom: 1rem;
 }
 
@@ -64,10 +66,11 @@
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 1rem;
+  color: #24313A;
 }
 
 .hiw-step-desc {
-  color: #b5b5b5;
+  color: #64747D;
   line-height: 1.6;
 }
 
@@ -78,7 +81,7 @@
   transform: translateX(-50%);
   width: 1px;
   height: 2rem;
-  background: linear-gradient(180deg, #2a2a2a 0%, rgba(42, 42, 42, 0) 100%);
+  background: linear-gradient(180deg, #DCE6EA 0%, rgba(220, 230, 234, 0) 100%);
   z-index: 1;
 }
 
@@ -98,6 +101,6 @@
     transform: translateY(-50%);
     width: 2rem;
     height: 1px;
-    background: linear-gradient(90deg, #2a2a2a 0%, rgba(42, 42, 42, 0) 100%);
+    background: linear-gradient(90deg, #DCE6EA 0%, rgba(220, 230, 234, 0) 100%);
   }
 }

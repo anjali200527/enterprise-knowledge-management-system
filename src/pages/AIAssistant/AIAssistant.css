@@ -6,8 +6,9 @@
   background-color: #F3F7FA;
 
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .ai-main-content {
@@ -16,15 +17,17 @@
   flex-direction: column;
 
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 /* ================= CONTAINER ================= */
 .ai-container {
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
   padding: 32px 40px;
   box-sizing: border-box;
   display: flex;
@@ -208,8 +211,9 @@
   border-bottom-left-radius: 4px;
 
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .user-message .message-content {
@@ -219,8 +223,9 @@
   border-bottom-right-radius: 4px;
 
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .message-content p {
@@ -410,7 +415,8 @@
     
   
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
 }
 }

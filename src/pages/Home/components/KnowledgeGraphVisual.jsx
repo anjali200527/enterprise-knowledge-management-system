@@ -7,6 +7,9 @@ const KnowledgeGraphVisual = () => {
     <section className="kg-visual-section">
       <div className="kg-container">
         <h2 className="kg-title">See How Your Knowledge Connects</h2>
+        <p className="kg-description">
+          Visualize how employees, projects, documents, and relationships are connected across your organization.
+        </p>
         
         <div className="kg-abstract-visual">
           <div className="kg-node employee-node">

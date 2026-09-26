@@ -117,8 +117,7 @@ button {
 .app-container {
   display: flex;
   min-height: 100vh;
-  width: 100vw;
-  /* overflow: visible; removed */
+  width: 100%;
   background-color: var(--ks-bg);
 }
 
@@ -135,9 +134,10 @@ button {
 .page-content {
   padding: 24px 32px;
   flex: 1;
-  max-width: 1600px;
-  margin: 0 auto;
   width: 100%;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 /* Global Premium Card Utility */

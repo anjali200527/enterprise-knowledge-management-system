@@ -1,11 +1,10 @@
 .home-hero {
   padding: 8rem 5% 6rem;
   background: #F3F7FA;
-  color: var(--ks-text);
+  color: #24313A;
   display: flex;
   justify-content: center;
   text-align: center;
-  overflow: hidden;
 }
 
 .hero-content-wrapper {
@@ -35,11 +34,11 @@
 }
 
 .hero-title {
-  font-size: 4.5rem;
-  font-weight: 700;
-  line-height: 1.1;
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.08;
   letter-spacing: -1.5px;
-  color: var(--ks-text);
+  color: #24313A;
 }
 
 .hero-description {
@@ -59,8 +58,8 @@
 .btn-primary {
   padding: 1rem 2rem;
   border-radius: 8px;
-  background: #F3F7FA;
-  color: #24313A;
+  background: #39758A;
+  color: #FFFFFF;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
@@ -73,19 +72,19 @@
 }
 
 .btn-primary:hover {
-  background: #F3F7FA;
+  background: #2b5d6e;
   transform: translateY(-2px);
 }
 
 .btn-secondary {
   padding: 1rem 2rem;
   border-radius: 8px;
-  background: #F3F7FA;
-  color: #111111;
+  background: #FFFFFF;
+  color: #24313A;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #DCE6EA;
   cursor: pointer;
   transition: background-color 0.2s, border-color 0.2s;
   display: inline-flex;
@@ -94,8 +93,8 @@
 }
 
 .btn-secondary:hover, .btn-secondary:focus {
-  background: #F3F7FA;
-  border-color: #111111;
+  background: #EDF5F7;
+  border-color: #39758A;
 }
 
 @keyframes fadeUp {

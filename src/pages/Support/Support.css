@@ -11,8 +11,9 @@
   overflow-x: hidden;
 
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .support-main-area {
@@ -22,8 +23,9 @@
       transition: margin-left 0.3s ease;
 
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 
@@ -122,8 +124,9 @@
   box-sizing: border-box;
 
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 /* ================= WELCOME ================= */
@@ -434,8 +437,9 @@
     padding: 1.5rem;
   
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
 }
   .support-grid {
     grid-template-columns: 1fr;

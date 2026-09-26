@@ -142,6 +142,9 @@ exports.addProject = async (req, res) => {
     const status =
       typeof body.status === "string" ? body.status.trim() : "Planning";
 
+    const startDate = body.startDate ? new Date(body.startDate) : null;
+    const endDate = body.endDate ? new Date(body.endDate) : null;
+
     // ========================================================
     // VALIDATE REQUIRED FIELDS
     // ========================================================
@@ -180,6 +183,8 @@ exports.addProject = async (req, res) => {
       department,
       projectManager,
       status,
+      startDate,
+      endDate,
     });
 
     // ========================================================
@@ -264,6 +269,9 @@ exports.updateProject = async (req, res) => {
 
     const status = typeof body.status === "string" ? body.status.trim() : "";
 
+    const startDate = body.startDate ? new Date(body.startDate) : null;
+    const endDate = body.endDate ? new Date(body.endDate) : null;
+
     // ========================================================
     // VALIDATE INPUT
     // ========================================================
@@ -304,6 +312,8 @@ exports.updateProject = async (req, res) => {
         department,
         projectManager,
         status,
+        startDate,
+        endDate,
       },
       {
         new: true,

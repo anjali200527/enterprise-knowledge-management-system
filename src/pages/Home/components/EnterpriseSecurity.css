@@ -1,7 +1,7 @@
 .enterprise-security-section {
   padding: 6rem 5%;
   background-color: #EAF3F6;
-  color: var(--ks-text);
+  color: #24313A;
   display: flex;
   justify-content: center;
 }
@@ -17,6 +17,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 4rem;
+  color: #24313A;
 }
 
 .security-grid {
@@ -26,9 +27,10 @@
 }
 
 .security-card {
-  background-color: var(--ks-bg-secondary);
-  border: 1px solid #2a2a2a;
-  border-radius: 12px;
+  background-color: #FFFFFF;
+  border: 1px solid #DCE6EA;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(36,49,58,0.06);
   padding: 2.5rem;
   text-align: center;
   display: flex;
@@ -39,17 +41,18 @@
 
 .security-icon {
   font-size: 2rem;
-  color: var(--ks-text);
+  color: #39758A;
   margin-bottom: 0.5rem;
 }
 
 .security-card h3 {
   font-size: 1.25rem;
   font-weight: 600;
+  color: #24313A;
 }
 
 .security-card p {
-  color: #b5b5b5;
+  color: #64747D;
   font-size: 0.95rem;
   line-height: 1.6;
 }

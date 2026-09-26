@@ -9,15 +9,18 @@ const Hero = () => {
     <section className="home-hero">
       <div className="hero-content-wrapper">
         <div className="hero-text-section">
-          <span className="hero-eyebrow">AI-POWERED ENTERPRISE KNOWLEDGE</span>
-          <h1 className="hero-title">Turn Enterprise Knowledge Into Intelligent Action.</h1>
+          <span className="hero-eyebrow">INTELLIGENT ENTERPRISE KNOWLEDGE PLATFORM</span>
+          <h1 className="hero-title">
+            Your Enterprise Knowledge.<br />
+            One Intelligent Platform.
+          </h1>
           <p className="hero-description">
-            Connect people, projects, documents and organizational knowledge through one intelligent enterprise platform.
+            Connect employees, projects, documents, and relationships in one intelligent platform. Discover, explore, and access your organization's knowledge with ease.
           </p>
           <div className="hero-actions">
-            <a href="#features" className="btn-primary">Explore KnowSphere &rarr;</a>
+            <a href="#features" className="btn-primary">Explore KnowSphere</a>
             <button className="btn-secondary" onClick={() => navigate('/login')}>
-              Get Started
+              See How It Works
             </button>
           </div>
         </div>

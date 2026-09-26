@@ -102,17 +102,15 @@ const relationshipSchema = new mongoose.Schema(
 // PREVENT SELF RELATIONSHIP
 // ============================================================
 
-relationshipSchema.pre("validate", function (next) {
+relationshipSchema.pre("validate", function () {
   if (
     this.sourceType === this.targetType &&
     this.sourceId &&
     this.targetId &&
     this.sourceId.equals(this.targetId)
   ) {
-    return next(new Error("Source and target cannot be the same entity."));
+    throw new Error("Source and target cannot be the same entity.");
   }
-
-  next();
 });
 
 // ============================================================

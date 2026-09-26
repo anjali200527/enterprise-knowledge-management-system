@@ -6,35 +6,38 @@ const AIAssistantSection = () => {
   return (
     <section className="ai-assistant-section">
       <div className="ai-container">
-        <h2 className="ai-title">Ask Your Enterprise Knowledge Anything.</h2>
+        <h2 className="ai-title">Ask Your Enterprise Knowledge Anything</h2>
+        <p className="ai-description">
+          Ask questions about your organization's knowledge and get relevant answers with the AI Assistant.
+        </p>
         
         <div className="ai-chat-preview">
           <div className="chat-window">
             <div className="chat-message user-message">
               <div className="message-icon"><FaUserCircle /></div>
               <div className="message-bubble">
-                Which employees are connected to Project Alpha?
+                Who is working on the current project?
               </div>
             </div>
             
             <div className="chat-message ai-message">
               <div className="message-icon"><FaRobot /></div>
               <div className="message-bubble">
-                Project Alpha is connected to the following employees: Sarah Jenkins (Lead Developer), Michael Chang (Product Manager), and David Silva (UX Designer).
+                Here are the employees associated with the project...
               </div>
             </div>
             
             <div className="chat-message user-message">
               <div className="message-icon"><FaUserCircle /></div>
               <div className="message-bubble">
-                Which documents are related to this project?
+                What documents are related to this project?
               </div>
             </div>
             
             <div className="chat-message ai-message">
               <div className="message-icon"><FaRobot /></div>
               <div className="message-bubble">
-                Here are the documents currently associated with the project: "Q3 Alpha Roadmap v2.pdf", "Alpha Architecture Diagram.png", and "Security Audit - Alpha.docx".
+                I found the following related documents...
               </div>
             </div>
           </div>

@@ -112,7 +112,7 @@
 }
 
 .mobile-menu-icon {
-  /* display: none removed */
+  display: none;
   background: transparent;
   border: none;
   color: var(--ks-text);
@@ -121,12 +121,12 @@
 }
 
 .mobile-menu {
-  /* display: none removed */
+  display: none;
 }
 
 @media (max-width: 860px) {
   .home-nav-links, .home-nav-auth {
-    /* display: none removed */
+    display: none;
   }
 
   .mobile-menu-icon {
